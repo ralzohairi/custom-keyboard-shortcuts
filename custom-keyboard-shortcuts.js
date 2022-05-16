@@ -25,8 +25,7 @@ document.onkeydown = (keyDownEvent) => {
         //do something as custom shortcut (a & b) is clicked
 
         // show text indicating shortcut is clicked
-        shortcutClickedTextRef.style.display = "flex";
-        shortcutNotClickedTextRef.style.display = "none";
+        displayShortcutClickedText();
     };
 }
 
@@ -40,8 +39,17 @@ document.onkeyup = (keyUpEvent) => {
 
     // when one of the keys is released, show text indicating
     // text is no longer clicked
-    if (!isKeyPressed["a"] || !isKeyPressed["b"]) { 
-        shortcutClickedTextRef.style.display = "none";
-        shortcutNotClickedTextRef.style.display = "flex";
+    if (!isKeyPressed["a"] || !isKeyPressed["b"]) {
+        hideShortcutClickedText();
     };
 };
+
+function displayShortcutClickedText() {
+    shortcutClickedTextRef.style.display = "flex";
+    shortcutNotClickedTextRef.style.display = "none";
+}
+
+function hideShortcutClickedText() {
+    shortcutClickedTextRef.style.display = "none";
+    shortcutNotClickedTextRef.style.display = "flex";
+}
